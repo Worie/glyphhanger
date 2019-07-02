@@ -106,7 +106,7 @@ class PuppeteerEnvironment {
 
 	async getBrowser() {
 		if( !this.browser ) {
-			this.browser = await puppeteer.launch();
+			this.browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
 		}
 
 		return this.browser;
