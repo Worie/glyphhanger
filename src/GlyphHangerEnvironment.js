@@ -106,7 +106,7 @@ class PuppeteerEnvironment {
 
 	async getBrowser() {
 		if( !this.browser ) {
-			this.browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+			this.browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'], executablePath: 'google-chrome-unstable', headless: true });
 		}
 
 		return this.browser;
@@ -179,6 +179,10 @@ class PuppeteerEnvironment {
 class GlyphHangerEnvironment {
 	setEnvironment(env) {
 		this.envStr = env.toLowerCase();
+	}
+
+	setEnvironmentConfig(pathToFile) {
+		fs.R
 	}
 
 	get env() {
